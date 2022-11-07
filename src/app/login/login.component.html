@@ -18,9 +18,9 @@
         </div>
       </div>
       <form class="login-form">
-        <input #acno name="acn" type="text" [placeholder]="data" />
-        <input #psw name="psw" type="password" placeholder="password" />
-        <button type="submit" (click)="login(acno,psw)" >login</button>
+        <input [(ngModel)]="acn" name="acn" type="text" [placeholder]="data" />
+        <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
+        <button type="submit" (click)="login()" >login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>

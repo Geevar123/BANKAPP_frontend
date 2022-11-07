@@ -12,7 +12,15 @@ DATA BINDING
      1.1.1 String interpollation - to do that we use,      {{}}
      1.1.2 Property binding - to do that we use,           [property]="value"
   
-  1.2 View to Component (html > ts)
+  1.2 View to Component (html > ts) (3 types)
      1.2.1 Event binding - to do that we use,              (event name)="methodname()"
      1.2.2 $event binding - to do that we use,             (event name)="methodname($event)"
-     1.2.3 event binding using template rendering method
+     1.2.3 event binding using template rendering method   #variable_name
+
+2. Two way Binding
+  2.1 ngModel(technique)  -  FormsModule(a module in ngModel. ie,extra module or 3rd party library):- [(ngModel)]="value"
+
+
+ Routing In Angular
+--------------------
+navigateByUrl     is a method of class Router

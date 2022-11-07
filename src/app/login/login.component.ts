@@ -25,11 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(a:any,b:any){
-    var acn=a.value  //(should provide variable type in the begining)
-    var psw=b.value
-    // console.log(acn);
-    
+  login(){
+    var acn=this.acn //(should provide variable type in the begining ie, var)
+    var psw=this.psw
     var userDetails=this.userDetails
 
     if(acn in userDetails){     //to check acn is present in userDetailes
