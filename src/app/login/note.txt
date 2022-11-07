@@ -15,4 +15,4 @@ DATA BINDING
   1.2 View to Component (html > ts)
      1.2.1 Event binding - to do that we use,              (event name)="methodname()"
      1.2.2 $event binding - to do that we use,             (event name)="methodname($event)"
-     1.2.3 event binding using 
+     1.2.3 event binding using template rendering method

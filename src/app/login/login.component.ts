@@ -25,9 +25,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    var acn=this.acn   //(should provide variable type in the begining)
-    var psw=this.psw
+  login(a:any,b:any){
+    var acn=a.value  //(should provide variable type in the begining)
+    var psw=b.value
+    // console.log(acn);
+    
     var userDetails=this.userDetails
 
     if(acn in userDetails){     //to check acn is present in userDetailes
@@ -43,14 +45,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  acnChange(event:any){
-    this.acn=event.target.value     //---to store value first we have have to declare the variable(acn) in class with data type as acn:any 
-    // console.log(this.acn);
-  }
-  pswChange(event:any){
-    this.psw=event.target.value    //---to store value first we have have to declare the variable(psw) in class with data type as psw:any
-    // console.log(this.psw);
-    
-  }
 
 }
+
+// acnChange(event:any){
+//   this.acn=event.target.value     to store value first we have have to declare the variable(acn) in class with data type as acn:any 
+//   console.log(this.acn);
+// }
+// pswChange(event:any){
+//   this.psw=event.target.value     to store value first we have have to declare the variable(psw) in class with data type as psw:any
+//   console.log(this.psw);
