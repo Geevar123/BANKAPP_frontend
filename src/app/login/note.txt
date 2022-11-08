@@ -24,3 +24,14 @@ DATA BINDING
  Routing In Angular
 --------------------
 navigateByUrl     is a method of class Router
+
+        Dependency injection - used for data sharing between 2 classes
+                             - woks inside constructor
+           code is           - accessSpecifier(public/private) variable_name(any name) : class_name(taken from angular > router)
+
+Angular Services
+----------------
+> to store frequently using datas(redendent datas)
+> create new folder at app folder inside src
+> open terminal from that folder
+> command: ng g s data

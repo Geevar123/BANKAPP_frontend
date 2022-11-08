@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,10 @@ export class LoginComponent implements OnInit {
     1003:{acn:1003,username:"mega",password:123,balance:0}
   }
 
-  constructor() { }
+  constructor(private router:Router) { }      //this will work 1st; private: used to make it as private; router: its just an variable name 
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {     //then this will work 2nd
+  }  
 
   login(){
     var acn=this.acn //(should provide variable type in the begining ie, var)
@@ -33,6 +34,8 @@ export class LoginComponent implements OnInit {
     if(acn in userDetails){     //to check acn is present in userDetailes
       if(psw==userDetails[acn]['password']){  //checking entered password with the password in database -we must use[]to take data of class
         alert('Login Success')
+        // redirection
+        this.router.navigateByUrl('dashboard')
       }
       else{
         alert("Incorrect Password")
@@ -45,6 +48,12 @@ export class LoginComponent implements OnInit {
 
 
 }
+
+// Login(a:any,b:any){
+//   var acn=a.value
+//   var psw=b.value
+// }
+
 
 // acnChange(event:any){
 //   this.acn=event.target.value     to store value first we have have to declare the variable(acn) in class with data type as acn:any 
