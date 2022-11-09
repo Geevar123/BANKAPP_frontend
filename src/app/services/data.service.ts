@@ -29,8 +29,28 @@ export class DataService {
     else{
       userDetails[acn]={acn,username,password,balance:0}
       console.log(userDetails);
-      
       return true
     }
   }
+
+
+  login(acn:any,psw:any){
+    var userDetails=this.userDetails
+  
+    if(acn in userDetails){     //to check acn is present in userDetailes
+      if(psw==userDetails[acn]['password']){  //checking entered password with the password in database -we must use[]to take data of class
+        return true
+      }
+      else{
+        alert('Incorrect Password')
+        return false
+      }
+    }
+    else{
+      alert('User not exist')
+      return false
+    }
+  }
+
 }
+

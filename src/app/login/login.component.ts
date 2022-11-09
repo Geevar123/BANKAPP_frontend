@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -21,32 +22,22 @@ export class LoginComponent implements OnInit {
     1003:{acn:1003,username:"mega",password:123,balance:0}
   }
 
-  constructor(private router:Router) { }      //this will work 1st; private: used to make it as private; router: its just an variable name 
+  constructor(private router:Router,private ds:DataService) { }      //this will work 1st; private: used to make it as private; router: its just an variable name 
 
   ngOnInit(): void {     //then this will work 2nd
   }  
 
   login(){
-    var acn=this.acn //(should provide variable type in the begining ie, var)
+    var acn=this.acn
     var psw=this.psw
-    var userDetails=this.userDetails
 
-    if(acn in userDetails){     //to check acn is present in userDetailes
-      if(psw==userDetails[acn]['password']){  //checking entered password with the password in database -we must use[]to take data of class
-        alert('Login Success')
-        // redirection
-        this.router.navigateByUrl('dashboard')
-      }
-      else{
-        alert("Incorrect Password")
-      }
-    }
-    else{
-      alert('User not exist')
+    const result=this.ds.login(acn,psw)
+
+    if(result){
+      alert('Login Success')
+      this.router.navigateByUrl('dashboard')
     }
   }
-
-
 }
 
 // Login(a:any,b:any){
