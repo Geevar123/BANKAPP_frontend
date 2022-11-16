@@ -23,10 +23,12 @@
           <p>Please enter your credentials to login.</p>
         </div>
       </div>
-      <form (ngSubmit)="login()" class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
         <!--(ngSubmit) is used here to work function on clicking enter key ,button type must be submit-->
-        <input [(ngModel)]="acn" name="acn" type="text" [placeholder]="data" />
-        <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
+        <input formControlName="acn" name="acn" type="text" [placeholder]="data" />
+        <div class="text-danger mb-2" *ngIf="this.loginForm.get('acn')?.errors && this.loginForm.get('acn')?.touched">Invalid Acc/No.</div>
+        <input formControlName="psw" name="psw" type="password" placeholder="password" />
+        <div class="text-danger mb-2" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">Invalid Password</div>
         <button type="submit">login</button>
         <p class="message">Not registered? <a href="#" routerLink="register">Create an account</a></p>
       </form>

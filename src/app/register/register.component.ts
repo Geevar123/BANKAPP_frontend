@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
     uname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
     acn: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-     psw: ['', [Validators.required, Validators.pattern('[0-9]+')]]
+     psw: ['', [Validators.required, Validators.pattern('[0-9\._*]+')]]
   })
 
   ngOnInit(): void {

@@ -56,3 +56,10 @@ Form validation in angular
         > form group
         > array
         > controller
+
+--can access the output of input attribute
+
+   > this.registerForm.get('uname')?.errors
+
+   (either) match with rule    --  empty  
+   (or)     not match          --  content

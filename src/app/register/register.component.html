@@ -21,8 +21,11 @@
       </div>
       <form [formGroup]="registerForm" (ngSubmit)="register()" class="login-form">
         <input formControlName="uname" name="uname" type="text" placeholder="Username" />
+        <div class="text-danger mb-2" *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">Invalid Username</div>
         <input formControlName="acn" name="acn" type="text" placeholder="Acc/No." />
+        <div class="text-danger mb-2" *ngIf="this.registerForm.get('acn')?.errors && this.registerForm.get('acn')?.touched">Invalid Acc/No.</div>
         <input formControlName="psw" name="psw" type="password" placeholder="password" />
+        <div class="text-danger mb-2" *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">Invalid Password</div>
         <button type="submit">Register</button>
         <p class="message">Already have an account ? <a href="#">Login here</a></p>
       </form>
