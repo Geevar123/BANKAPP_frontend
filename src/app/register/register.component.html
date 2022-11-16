@@ -19,10 +19,10 @@
           <!-- <p>Please enter your credentials to register.</p> -->
         </div>
       </div>
-      <form (ngSubmit)="register()" class="login-form">
-        <input [(ngModel)]="uname" name="uname" type="text" placeholder="Username" />
-        <input [(ngModel)]="acn" name="acn" type="text" placeholder="Acc/No." />
-        <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
+      <form [formGroup]="registerForm" (ngSubmit)="register()" class="login-form">
+        <input formControlName="uname" name="uname" type="text" placeholder="Username" />
+        <input formControlName="acn" name="acn" type="text" placeholder="Acc/No." />
+        <input formControlName="psw" name="psw" type="password" placeholder="password" />
         <button type="submit">Register</button>
         <p class="message">Already have an account ? <a href="#">Login here</a></p>
       </form>

@@ -35,3 +35,24 @@ Angular Services
 > create new folder at app folder inside src
 > open terminal from that folder
 > command: ng g s data
+
+Angular Dierectives
+-------------------
+structure dierective - can apply datas directly from array
+                     - ngFor : uses instead of for loop
+
+Form validation in angular
+--------------------------
+
+1. Template Driven Form - first html form then apply validation
+2. Model Driven Form - a model create for form in ts then apply validation methods.
+
+
+> we use Model Driven Form-
+    > Module used for model form creation is  - 'ReactiveFormsModule'
+    > class in ReactiveFormsModule for Model Form creation - 'FormBuilder'
+
+    Model Form contains..
+        > form group
+        > array
+        > controller
