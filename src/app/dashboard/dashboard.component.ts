@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
   psw1: any
   amnt1: any
 
-  constructor(private ds: DataService) {
+  constructor(private ds: DataService,private router:Router) {
     this.user=this.ds.currentuser
    }
 
@@ -46,6 +47,11 @@ export class DashboardComponent implements OnInit {
       alert(`${amnt1} is debited from your Account & the available balance is Rs.${result}`)
 
     }
+  }
+  logout(){
+    localStorage.removeItem('currentAcn')
+    localStorage.removeItem('currentUser')
+    this.router.navigateByUrl('')
   }
 
 }

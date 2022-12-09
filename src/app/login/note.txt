@@ -38,7 +38,7 @@ Angular Services
 
 Angular Dierectives
 -------------------
-structure dierective - can apply datas directly from array
+structure dierective - can apply datas directly from array or object
                      - ngFor : uses instead of for loop
 
 Form validation in angular
@@ -63,3 +63,10 @@ Form validation in angular
 
    (either) match with rule    --  empty  
    (or)     not match          --  content
+
+
+Local Storage in Angular
+------------------------
+>setItem- to store data in LS  -- in JSON format >>>  json.stringify
+>getItem- to get data from LS  -- in TS format  >>>  json.parse
+>removeItem- to remove data in LS

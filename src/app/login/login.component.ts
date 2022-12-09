@@ -10,8 +10,8 @@ import { DataService } from '../services/data.service';
 })
 export class LoginComponent implements OnInit {
 
-  acn: any
-  psw: any
+  // acn: any
+  // psw: any
 
   aim = "Your Perfect Banking Partner"
   data = "Enter Acc/No."
@@ -23,13 +23,13 @@ export class LoginComponent implements OnInit {
     1003: { acn: 1003, username: "mega", password: 123, balance: 0 }
   }
   // Dependency Injection below
-  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) { }
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {}
   //this will work 1st; private: used to make it as private; router: its just an variable name 
 
   // create login form model
   loginForm = this.fb.group({
     acn: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-    psw: ['', [Validators.required, Validators.pattern('[0-9\._*]+')]]
+    psw: ['', [Validators.required, Validators.pattern('[0-9\._*@]+')]]
   })
 
 
