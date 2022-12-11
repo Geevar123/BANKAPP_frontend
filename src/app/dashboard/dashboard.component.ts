@@ -24,6 +24,10 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if(!localStorage.getItem('currentAcn')){
+      alert('Session Expired, Please login again')
+      this.router.navigateByUrl('');
+    }
   }
   deposit() {
     var acn = this.acn
@@ -49,9 +53,14 @@ export class DashboardComponent implements OnInit {
     }
   }
   logout(){
+    // remove current Acc/ and current uname
     localStorage.removeItem('currentAcn')
     localStorage.removeItem('currentUser')
     this.router.navigateByUrl('')
+  }
+  delete(){
+    // assigning current Acc/ into acn from localStorage
+    this.acn=JSON.parse(localStorage.getItem('currentAcn')||'');
   }
 
 }

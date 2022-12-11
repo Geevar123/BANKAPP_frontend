@@ -69,4 +69,16 @@ Local Storage in Angular
 ------------------------
 >setItem- to store data in LS  -- in JSON format >>>  json.stringify
 >getItem- to get data from LS  -- in TS format  >>>  json.parse
->removeItem- to remove data in LS
+>removeItem- to remove data from LS
+
+---Js to JSON : JSON.stringify
+---JSON to Js : JSON.parse
+
+Parent - child communcation
+---------------------------
+
+  parent  >>  child  communcation
+  child   >>  parent communcation
+
+eg: parent: Dashboard
+    child : Delete(new component)

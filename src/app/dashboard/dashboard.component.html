@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <div class="p-3" style="text-align: end;"><button (click)="logout()" class="btn btn-outline-danger">Logout</button></div>
+    <div class="p-3" style="text-align: end;"><button (click)="logout()" class="btn btn-danger">Logout</button></div>
+    <div class="p-3" style="text-align: end;"><button (click)="delete()" class="btn btn-outline-warning">Delete</button></div>
     <h2 class="text-center">Welcome {{user}}</h2>
     <h1 style="text-align:center; margin-top: 111px; color: white; ">Deposit & Withdraw Money</h1>
     <div>
@@ -20,6 +21,7 @@
             class="p-2 w-25  ms-3 text-center "><a style="text-decoration: none;" routerLink="/transaction">view
                 transaction history</a></div>
     </div>
+    <app-delete [item]="acn"></app-delete>
     <div class="row">
         <div class="col-lg-2">
         </div>
