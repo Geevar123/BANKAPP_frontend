@@ -1,7 +1,7 @@
-<div>
-<h3>Are you sure to delete this account: {{item}}</h3>
-<button class="btn btn-success">Yes</button>
-<button class="btn btn-danger">NO</button>
+<div *ngIf="item" style="text-align:center;">  <!--this div works only if delete button is clicked, *ngIf=if condn -->
+<h3>Are you sure to delete this account {{item}} ?</h3>
+<button class="btn btn-success me-2">Yes</button>
+<button class="btn btn-danger"(click)="cancel()">NO</button>
 </div>
 
 

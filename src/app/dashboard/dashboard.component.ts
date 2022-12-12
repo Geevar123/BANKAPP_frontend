@@ -19,8 +19,11 @@ export class DashboardComponent implements OnInit {
   psw1: any
   amnt1: any
 
+  sdate: any
+
   constructor(private ds: DataService,private router:Router) {
     this.user=this.ds.currentuser
+    this.sdate=new Date()
    }
 
   ngOnInit(): void {
@@ -61,6 +64,9 @@ export class DashboardComponent implements OnInit {
   delete(){
     // assigning current Acc/ into acn from localStorage
     this.acn=JSON.parse(localStorage.getItem('currentAcn')||'');
+  }
+  onCancel(){
+    this.acn="";
   }
 
 }

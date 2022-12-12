@@ -13,57 +13,65 @@
 
 <body>
     <div class="p-3" style="text-align: end;"><button (click)="logout()" class="btn btn-danger">Logout</button></div>
-    <div class="p-3" style="text-align: end;"><button (click)="delete()" class="btn btn-outline-warning">Delete</button></div>
-    <h2 class="text-center">Welcome {{user}}</h2>
-    <h1 style="text-align:center; margin-top: 111px; color: white; ">Deposit & Withdraw Money</h1>
+    <div class="pe-3" style="text-align: end;"><button (click)="delete()"
+            class="btn btn-outline-warning">Delete</button></div>
+    <h2 class="text-align:start ms-4 mb-2"
+        style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Welcome {{user}}</h2>
+    <!-- <h1 style="text-align:center; margin-top: 111px; color: white; ">Deposit & Withdraw Money</h1> -->
     <div>
-        <div style="color: white; background-color: aliceblue; border-radius: 20px; border: 1px solid blueviolet;"
-            class="p-2 w-25  ms-3 text-center "><a style="text-decoration: none;" routerLink="/transaction">view
+        <div class="ms-4"><a style=" color: yellow;font-family:Verdana, Geneva, Tahoma, sans-serif;"
+                routerLink="/transaction">view
                 transaction history</a></div>
+        <h4 class="ms-4" style="font-size:smaller;color: rgb(71, 23, 201);">System Date & Time: {{sdate |date:'short'}}</h4>
     </div>
-    <app-delete [item]="acn"></app-delete>
-    <div class="row">
-        <div class="col-lg-2">
-        </div>
-        <!-- Deposit Form -->
-        <div class="col-lg-4 col-md-6">
-            <div class="login-page">
-                <div class="form">
-                    <div class="login">
-                        <div class="login-header">
-                            <h3 style="color: green;">Deposit</h3>
-                            <!-- <p>Please enter your credentials to Deposit.</p> -->
-                        </div>
+
+
+    <!-- Child Selector -->
+    <app-delete [item]="acn" (OnCancel)="onCancel()"></app-delete>
+
+
+    <div class="row" [ngClass]="acn? 'style1':''"> <!--[ngClass=""] is used to hide this div on clicking delete button-->
+    <div class="col-lg-2">
+    </div>
+    <!-- Deposit Form -->
+    <div class="col-lg-4 col-md-6">
+        <div class="login-page">
+            <div class="form">
+                <div class="login">
+                    <div class="login-header">
+                        <h3 style="color: green;">Deposit</h3>
+                        <!-- <p>Please enter your credentials to Deposit.</p> -->
                     </div>
-                    <form (ngSubmit)="deposit()" class="login-form">
-                        <input [(ngModel)]="acn" name="acn" type="text" placeholder="Enter Acc/No." />
-                        <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
-                        <input [(ngModel)]="amnt" name="amnt" type="text" placeholder="Amount" />
-                        <button type="submit">Deposit</button>
-                    </form>
                 </div>
+                <form (ngSubmit)="deposit()" class="login-form">
+                    <input [(ngModel)]="acn" name="acn" type="text" placeholder="Enter Acc/No." />
+                    <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
+                    <input [(ngModel)]="amnt" name="amnt" type="text" placeholder="Amount" />
+                    <button type="submit">Deposit</button>
+                </form>
             </div>
         </div>
-        <!-- Withdraw Form -->
-        <div class="col-lg-4 col-md-6">
-            <div class="login-page">
-                <div class="form">
-                    <div class="login">
-                        <div class="login-header">
-                            <h3 style="color: green;">Withdraw</h3>
-                            <!-- <p>Please enter your credentials to Withdraw.</p> -->
-                        </div>
+    </div>
+    <!-- Withdraw Form -->
+    <div class="col-lg-4 col-md-6">
+        <div class="login-page">
+            <div class="form">
+                <div class="login">
+                    <div class="login-header">
+                        <h3 style="color: green;">Withdraw</h3>
+                        <!-- <p>Please enter your credentials to Withdraw.</p> -->
                     </div>
-                    <form (ngSubmit)="withdraw()" class="login-form">
-                        <input [(ngModel)]="acn1" name="acn1" type="text" placeholder="Enter Acc/No." />
-                        <input [(ngModel)]="psw1" name="psw1" type="password" placeholder="password" />
-                        <input [(ngModel)]="amnt1" name="amnt1" type="text" placeholder="Amount" />
-                        <button type="submit">Withdraw</button>
-                    </form>
                 </div>
+                <form (ngSubmit)="withdraw()" class="login-form">
+                    <input [(ngModel)]="acn1" name="acn1" type="text" placeholder="Enter Acc/No." />
+                    <input [(ngModel)]="psw1" name="psw1" type="password" placeholder="password" />
+                    <input [(ngModel)]="amnt1" name="amnt1" type="text" placeholder="Amount" />
+                    <button type="submit">Withdraw</button>
+                </form>
             </div>
         </div>
-        <div class="col-lg-2"></div>
+    </div>
+    <div class="col-lg-2"></div>
     </div>
 </body>
 

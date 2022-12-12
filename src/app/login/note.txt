@@ -82,3 +82,8 @@ Parent - child communcation
 
 eg: parent: Dashboard
     child : Delete(new component)
+
+Angular pipes
+-------------
+Transformations done here
+eg: Currency - USD to INR
