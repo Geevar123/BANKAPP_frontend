@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     1003: { acn: 1003, username: "mega", password: 123, balance: 0 }
   }
   // Dependency Injection below
-  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {}
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) { }
   //this will work 1st; private: used to make it as private; router: its just an variable name 
 
   // create login form model
@@ -37,20 +37,25 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var acn = this.loginForm.value.acn
-    var psw = this.loginForm.value.psw
-
-
 
     if (this.loginForm.valid) {
-      const result = this.ds.login(acn, psw)
-      if (result) {
-        alert('Login Success')
-        this.router.navigateByUrl('dashboard')
-      }
-    }
-    else {
-      alert('Invalid Form')
+
+      var acn = this.loginForm.value.acn;
+      var password = this.loginForm.value.psw;
+      
+      this.ds.login(acn, password)
+        .subscribe((result: any) => {
+          localStorage.setItem('currentuser',JSON.stringify(result.currentUser));
+          localStorage.setItem('currentacn',JSON.stringify(result.currentAcn));
+          localStorage.setItem('token',JSON.stringify(result.token));
+          alert(result.message);
+          this.router.navigateByUrl('dashboard')
+        },
+          result => {
+            alert(result.error.message)
+          }
+        )
+
     }
   }
 }

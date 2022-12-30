@@ -27,7 +27,7 @@
 
 
     <!-- Child Selector -->
-    <app-delete [item]="acn" (OnCancel)="onCancel()"></app-delete>
+    <app-delete [item]="acn" (OnCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>
 
 
     <div class="row" [ngClass]="acn? 'style1':''"> <!--[ngClass=""] is used to hide this div on clicking delete button-->
@@ -43,10 +43,16 @@
                         <!-- <p>Please enter your credentials to Deposit.</p> -->
                     </div>
                 </div>
-                <form (ngSubmit)="deposit()" class="login-form">
-                    <input [(ngModel)]="acn" name="acn" type="text" placeholder="Enter Acc/No." />
-                    <input [(ngModel)]="psw" name="psw" type="password" placeholder="password" />
-                    <input [(ngModel)]="amnt" name="amnt" type="text" placeholder="Amount" />
+                <form [formGroup]="depositForm"(ngSubmit)="deposit()" class="login-form">
+                    <input formControlName="acn" name="acn" type="text" placeholder="Enter Acc/No." />
+                    <div class="text-danger mb-2" *ngIf="this.depositForm.get('acn')?.errors && this.depositForm.get('acn')?.touched">Invalid Acc/No.</div>
+                    
+                    <input formControlName="psw" name="psw" type="password" placeholder="password" />
+                    <div class="text-danger mb-2" *ngIf="this.depositForm.get('psw')?.errors && this.depositForm.get('psw')?.touched">Invalid Password.</div>
+                    
+                    <input formControlName="amnt" name="amnt" type="text" placeholder="Amount" />
+                    <div class="text-danger mb-2" *ngIf="this.depositForm.get('amnt')?.errors && this.depositForm.get('amnt')?.touched">Invalid Data</div>
+                    
                     <button type="submit">Deposit</button>
                 </form>
             </div>
@@ -62,10 +68,16 @@
                         <!-- <p>Please enter your credentials to Withdraw.</p> -->
                     </div>
                 </div>
-                <form (ngSubmit)="withdraw()" class="login-form">
-                    <input [(ngModel)]="acn1" name="acn1" type="text" placeholder="Enter Acc/No." />
-                    <input [(ngModel)]="psw1" name="psw1" type="password" placeholder="password" />
-                    <input [(ngModel)]="amnt1" name="amnt1" type="text" placeholder="Amount" />
+                <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()" class="login-form">
+                    <input formControlName="acn1" name="acn1" type="text" placeholder="Enter Acc/No." />
+                    <div class="text-danger mb-2" *ngIf="this.withdrawForm.get('acn1')?.errors && this.withdrawForm.get('acn1')?.touched">Invalid Acc/No.</div>
+
+                    <input formControlName="psw1" name="psw1" type="password" placeholder="password" />
+                    <div class="text-danger mb-2" *ngIf="this.withdrawForm.get('psw1')?.errors && this.withdrawForm.get('psw1')?.touched">Invalid Acc/No.</div>
+
+                    <input formControlName="amnt1" name="amnt1" type="text" placeholder="Amount" />
+                    <div class="text-danger mb-2" *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched">Invalid Acc/No.</div>
+
                     <button type="submit">Withdraw</button>
                 </form>
             </div>

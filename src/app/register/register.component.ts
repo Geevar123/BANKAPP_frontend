@@ -20,34 +20,27 @@ export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
     uname: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
     acn: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-     psw: ['', [Validators.required, Validators.pattern('[0-9\._*]+')]]
+    psw: ['', [Validators.required, Validators.pattern('[0-9\._*]+')]]
   })
 
   ngOnInit(): void {
   }
 
   register() {
-    var uname = this.registerForm.value.uname   //this step is used to avoid frequently calling this.uname ,by  using this we only need to call uname
+    var username = this.registerForm.value.uname   //this step is used to avoid frequently calling this.uname ,by  using this we only need to call uname
     var acn = this.registerForm.value.acn
-    var psw = this.registerForm.value.psw
+    var password = this.registerForm.value.psw
 
     // Checking valid or not
     if (this.registerForm.valid) {
-      const result = this.ds.register(acn, uname, psw)
-
-      if (result) {
-        alert('Successfully Registered')
-
-        this.router.navigateByUrl('')
-      }
-      else {
-        alert('User exist')
-      }
-    }
-    else {
-      alert('Invalid Form')
-    }
+      // console.log(this.registerForm.get('username')?.errors);
+      this.ds.register(acn, username, password)
+        .subscribe((result: any) => {
+          alert(result.message);
+          this.router.navigateByUrl('')
+      },
+    result=>{
+      alert(result.error.message)
+    })
   }
-
-
-}
+  }}
